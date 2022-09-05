@@ -1,0 +1,92 @@
+{
+    "jest.autoRun": "off",
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/*.mock.json"
+            ],
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "number",
+                        "description": "Request url in milliseconds",
+                        "default": 0,
+                    },
+                    "request": {
+                        "type": "object",
+                        "required": [
+                            "path",
+                            "method",
+                        ],
+                        "properties": {
+                            "path": {
+                                "type": "string",
+                                "description": "Request path in regexp string",
+                            },
+                            "method": {
+                                "type": "string",
+                                "enum": [
+                                    "get",
+                                    "GET",
+                                    "head",
+                                    "HEAD",
+                                    "post",
+                                    "POST",
+                                    "put",
+                                    "PUT",
+                                    "delete",
+                                    "DELETE",
+                                    "connect",
+                                    "CONNECT",
+                                    "options",
+                                    "OPTIONS",
+                                    "trace",
+                                    "TRACE",
+                                    "patch",
+                                    "PATCH",
+                                ],
+                                "description": "Http Method",
+                            },
+                            "headers": {
+                                "type": "object",
+                                "description": "Request headers to match"
+                            }
+                        }
+                    },
+                    "response": {
+                        "type": "object",
+                        "description": "Response info",
+                        "required": [
+                            "status",
+                            "headers",
+                        ],
+                        "properties": {
+                            "status": {
+                                "type": "number",
+                                "description": "Response's status",
+                                "default": 404,
+                            },
+                            "headers": {
+                                "type": "object",
+                                "description": "Response's headers",
+                            },
+                            "json": {
+                                "type": "object",
+                                "description": "Response body in json format (which have higher priority if exists)"
+                            },
+                            "body": {
+                                "type": "string",
+                                "description": "Response's body"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "request",
+                    "response"
+                ]
+            }
+        }
+    ]
+}

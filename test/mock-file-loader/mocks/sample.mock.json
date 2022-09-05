@@ -1,0 +1,13 @@
+{
+    "request": {
+        "path": "/",
+        "method": "get"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+
+        },
+        "body": "{}"
+    }
+}
