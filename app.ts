@@ -2,7 +2,11 @@ import express from 'express';
 import { delay } from './helpers/delay';
 import { HttpRequestMatcher } from './models/http-request-matcher';
 import { mocks } from './store/mock-files';
+import cors from "cors";
+
 export const app = express();
+
+app.use(cors());
 
 app.all("*", async function (req, res, next) {
     const theRequestMatcher: HttpRequestMatcher = new HttpRequestMatcher(req.path, req.method, JSON.parse(JSON.stringify(req.headers)));
