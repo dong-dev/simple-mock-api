@@ -12,6 +12,34 @@ describe('Http Request Matcher', () => {
         const isMatched = theRequestMatcher.IsMatch(theRequestBeingCache);
         expect(isMatched).toBe(true);
     });
+    it('should match + header', () => {
+        const theRequestBeingCache = new HttpRequest({
+            path: "^/.*$",
+            method: HTTP_METHOD.GET,
+            headers: {
+                Authorization: "^Bearer.*$"
+            }
+        });
+        const theRequestMatcher = new HttpRequestMatcher("/", HTTP_METHOD.GET, {
+            Authorization: "Bearer jwt"
+        });
+        const isMatched = theRequestMatcher.IsMatch(theRequestBeingCache);
+        expect(isMatched).toBe(true);
+    });
+    it('should match + params', () => {
+        const theRequestBeingCache = new HttpRequest({
+            path: "^/.*$",
+            method: HTTP_METHOD.GET,
+            params: {
+                page: "1"
+            }
+        });
+        const theRequestMatcher = new HttpRequestMatcher("/", HTTP_METHOD.GET, {}, {
+            page: 1,
+        });
+        const isMatched = theRequestMatcher.IsMatch(theRequestBeingCache);
+        expect(isMatched).toBe(true);
+    });
     it('should not match if having invalid path', () => {
         const theRequestBeingCache = new HttpRequest({
             path: "^h.*$",

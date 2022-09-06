@@ -5,4 +5,5 @@ export interface IHttpRequest {
     method: string;
     headers?: Record<string, string>;
     body?: string;
+    params?: Record<string, boolean | string | number>;
 }
