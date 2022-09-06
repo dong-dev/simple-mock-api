@@ -48,6 +48,18 @@
                                 ],
                                 "description": "Http Method",
                             },
+                            "params": {
+                                "type": "object",
+                                "description": "Http Request params",
+                                "examples": [
+                                    {
+                                        "page": "1"
+                                    },
+                                    {
+                                        "page": "\\d",
+                                    }
+                                ]
+                            },
                             "headers": {
                                 "type": "object",
                                 "description": "Request headers to match"
