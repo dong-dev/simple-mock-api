@@ -1,5 +1,6 @@
 {
     "jest.autoRun": "off",
+    "cSpell.useGitignore": false,
     "json.schemas": [
         {
             "fileMatch": [
@@ -84,7 +85,10 @@
                                 "description": "Response's headers",
                             },
                             "json": {
-                                "type": "object",
+                                "type": [
+                                    "object",
+                                    "array"
+                                ],
                                 "description": "Response body in json format (which have higher priority if exists)"
                             },
                             "body": {
