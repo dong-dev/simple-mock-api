@@ -13,7 +13,7 @@ export class HttpRequest implements IHttpRequest {
             return;
         }
         this.path = Object.prototype.hasOwnProperty.call(data, 'path') ? data.path : this.path;
-        this.method = Object.prototype.hasOwnProperty.call(data, 'method') ? data.method : this.method;
+        this.method = Object.prototype.hasOwnProperty.call(data, 'method') ? data.method.toLowerCase() : this.method;
         this.headers = Object.prototype.hasOwnProperty.call(data, 'headers') && isObject(data.headers) ? data.headers : this.headers;
         this.params = Object.prototype.hasOwnProperty.call(data, 'params') && isObject(data.params) ? data.params : this.params;
         this.body = Object.prototype.hasOwnProperty.call(data, 'body') ? data.body : this.body;
