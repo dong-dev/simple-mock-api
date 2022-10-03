@@ -2,3 +2,4 @@ node_modules
 mocks/*
 !*mocks/sample.mock.json
 public/*
+.env
